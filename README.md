@@ -17,7 +17,7 @@ docker build . -t  amarna:0.1.0
 
 2.  Run the container from image.
 
-    a. Run Amarna for current files and output to `out.sarif` file.
+    a. Run Amarna for files in current dir and output to `out.sarif` file.
 
         ```sh
         docker run --rm -it -v $(pwd):/src amarna:0.1.0
@@ -32,3 +32,9 @@ docker build . -t  amarna:0.1.0
         #                                   -----------------
         #                                   + Bash to run your commands
         ```
+
+Image is also available on docker at https://hub.docker.com/r/shramee/amarna
+
+```
+docker pull shramee/amarna
+```
