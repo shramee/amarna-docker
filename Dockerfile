@@ -3,5 +3,12 @@ FROM python:3.7
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 ENV PIP_NO_CACHE_DIR=1
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENV AMARNA_PKG "amarna"
+ENV AMARNA_ARGS ""
+ENV TARGET "/src"
+ENV OUT_PATH "out.sarif"
+
+RUN pip3 install wheel
+RUN pip3 install $AMARNA_PKG
+WORKDIR /src
+ENTRYPOINT amarna $OUT_DIR -o $OUT_PATH $AMARNA_ARGS
